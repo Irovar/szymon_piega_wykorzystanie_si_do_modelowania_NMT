@@ -2,8 +2,11 @@
 praca inżynierska
 
 Biblioteki wymagane przez projekt:
-1. Pillow - pip install pillow
-2. PyTorch - pip install torch
-3. NuPy - pip install numpy
-4. OpenCV - pip install opencv-python
+1. Pillow
+2. PyTorch
+3. NuPy
+4. OpenCV
+   
+pip install torch numpy opencv-python pillow
+
 Pozostałe importy w pythonie nie wymagają żadnych instalacji (tkinter, os, sys, time, subprocess, messagebox)
