@@ -35,3 +35,31 @@ Wymagane biblioteki:
 Otwórz terminal w folderze projektu i wpisz:
 ```bash
 pip install torch numpy opencv-python pillow
+```
+
+### 2. Środowisko Windows (Wizualizacja 3D)
+Plik `OpenGL.exe` jest skompilowany statycznie i nie wymaga instalacji środowiska programistycznego.
+
+## Sterowanie w oknie 3D
+
+Po uruchomieniu wizualizacji sterowanie kamerą odbywa się następująco:
+
+| Akcja | Klawisz / Mysz |
+| :--- | :--- |
+| **Obrót kamery** | Przytrzymaj **Lewy Przycisk Myszy** i ruszaj myszką |
+| **Przesuwanie mapy** | Przytrzymaj **Prawy Przycisk Myszy** i ruszaj myszką |
+| **Przybliżanie (Zoom)** | **Scroll** myszy |
+| **Zrzut ekranu** | Klawisz **P** (zapisuje plik `screenshot_model.png` w folderze aplikacji) |
+
+
+## Dostęp do kodu źródłowego
+
+W celu weryfikacji implementacji silnika graficznego, do repozytorium dołączono **pełny katalog projektu Visual Studio**. Pozwala to na podgląd struktury kodu oraz samodzielną kompilację bez konieczności ręcznej konfiguracji bibliotek zewnętrznych.
+
+**Zawartość folderu projektowego:**
+* `OpenGL.sln` - Główny plik rozwiązania – otwiera cały projekt w Visual Studio.
+* `src/` - Folder z plikami źródłowymi C++.
+* `Dependencies/` - Skonfigurowane biblioteki zewnętrzne.
+* Pliki konfiguracyjne (`.vcxproj`, `.filters`).
+
+Projekt jest skonfigurowany relatywnie, co oznacza, że po pobraniu repozytorium można go od razu zbudować w środowisku Visual Studio 2022.
