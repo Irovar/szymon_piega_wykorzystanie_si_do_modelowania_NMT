@@ -1,0 +1,2 @@
+# szymon_piega_wykorzystanie_si_do_modelowania_NMT
+praca inżynierska
