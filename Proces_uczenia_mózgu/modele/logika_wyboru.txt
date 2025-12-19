@@ -1,0 +1,2 @@
+Wybrano 59 charakterystycznych różnych modeli z pokrojonych na kawałki fragmentów map (512px x 512px)
+Dodano ręcznych 2 modeli jako skrajnych przypadków do uczenia modelu SI

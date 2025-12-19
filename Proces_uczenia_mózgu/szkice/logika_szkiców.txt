@@ -1,0 +1,3 @@
+Ręczne utworzenie 61 szkiców na podstawie modeli
+Wykorzystano prosty program graficzny - gimp, aby ręcznie narysować szkice do odpowiednich modeli.
+W ten sposób nauczony został model SI, tak aby generował modele NMT ze szkicu narysowanego przez człowieka.

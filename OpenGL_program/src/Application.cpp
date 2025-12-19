@@ -39,7 +39,7 @@ void key_callback( GLFWwindow* window, int key, int scancode, int action, int mo
 {
     if(key == GLFW_KEY_P && action == GLFW_PRESS)
     {
-        cout << "Proba wykonania zrzutu ekranu..." << endl;
+        cout << "Próba wykonania zrzutu ekranu" << endl;
         glfwGetFramebufferSize( window, &fbWidth, &fbHeight );
         vector<unsigned char> pixels( fbWidth * fbHeight * 3 );
         glReadPixels( 0, 0, fbWidth, fbHeight, GL_RGB, GL_UNSIGNED_BYTE, pixels.data() );
@@ -51,7 +51,7 @@ void key_callback( GLFWwindow* window, int key, int scancode, int action, int mo
         if(result)
             cout << "Zapisano zrzut ekranu: " << filename << endl;
         else
-            cout << "BLAD podczas zapisu zrzutu ekranu!" << endl;
+            cout << "B³¹d podczas zapisu zrzutu ekranu" << endl;
     }
 }
 
@@ -106,7 +106,7 @@ void cursor_position_callback( GLFWwindow* window, double xpos, double ypos )
 float getHeightAndSetColor( int x, int z ) {
     if(x < 0 || x >= width || z < 0 || z >= height) return 0.0f;
     int index = (z * width + x) * channels;
-    // Wzór: (val - min) / (max - min) (NORMALIZACJA)
+    // wzór: (val - min) / (max - min) (NORMALIZACJA)
     float rawVal = (float)imgData[index];
     float range = maxVal - minVal;
     if(range <= 0.0f) range = 1.0f; //nie dzieliæ przez 0
@@ -160,7 +160,7 @@ void repairEdges() {
     int margin = 5;
     if(!imgData || width < 2 * margin || height < 2 * margin) return;
 
-    cout << "Naprawianie krawedzi (margines: " << margin << " px)..." << endl;
+    cout << "naprawianie krawedzi (margines: " << margin << " px)" << endl;
 
     for(int x = 0; x < width; x++) {
         int idxTopSafe = (margin * width + x) * channels;
@@ -230,18 +230,18 @@ int main( void )
         maxVal = localMax;
     }
     else {
-        cout << "BLAD: Brak pliku terrain.png!" << endl;
+        cout << "B³¹d - Brak pliku terrain.png!" << endl;
     }
 
     glEnable( GL_DEPTH_TEST );
 
     while(!glfwWindowShouldClose( window ))
     {
-        // Jasnoniebieskie t³o (niebo)
+        // t³o
         glClearColor( 0.53f, 0.81f, 0.92f, 1.0f );
         glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
-        // Kamera
+        // kamera
         glMatrixMode( GL_PROJECTION );
         glLoadIdentity();
 
@@ -254,7 +254,7 @@ int main( void )
         glMatrixMode( GL_MODELVIEW );
         glLoadIdentity();
 
-        // Transformacje (Pan & Rotate)
+        // transformacje - rotacja i przesuniêcie
         glTranslatef( moveX, moveY, 0.0f );
         glRotatef( rotX, 1.0f, 0.0f, 0.0f );
         glRotatef( rotY, 0.0f, 1.0f, 0.0f );
