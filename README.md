@@ -75,10 +75,12 @@ Projekt jest skonfigurowany relatywnie, co oznacza, że po pobraniu repozytorium
 * `mapy_png` - katalog z danymi NMT pobranymi z portalu geoportal.gov.pl
 * `modele` - katalog z wybranymi pociętymi fragmentami map
 * `szkice` - katalog z ręcznie utworzonymi szkicami do modeli
+* `krok0_tiff_na_png.py` - plik w języku Python służyący do konwersji plików GeoTIFF na png
 * `krok1_potnij_mapy.py` - plik w języku Python służący do pocięcia wielkich obrazów NMT na mniejsze fragmenty 512x512 px
 * `krok2_augmentuj_pary.py` - plik w języku Python służący do zwiększenia ilości danych do uczenia modelu SI
 * `krok3_trenuj_mozg` - plik w języku Python służący do uczenia modelu SI wykorzystując zaugmentowane dane
 
+krok0_tiff_na_png nie jest konieczny do rozpoczęcia trenowania modelu. Dane mapy_png już są po konwersji.
 krok1_potnij_mapy nie jest konieczny do rozpoczęcia trenowania modelu. Służy jedynie do wyboru danych wejściowych.
 
 krok2 musi zostać uruchomiony przed krok3 aby wygenerować więcej danych wejściowych
