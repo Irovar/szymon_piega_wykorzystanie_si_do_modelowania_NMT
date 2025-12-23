@@ -56,6 +56,9 @@ class MapaSzkicDataset(Dataset):
         # wczytanie mapy (czarno-biała)
         mapa_img = cv2.imread(sciezka_mapy, cv2.IMREAD_GRAYSCALE)
         
+        #konwersja szkicu z BGR do RGB, czerwony zosatnie czerwonym dla torcha
+        szkic_img = cv2.cvtColor(szkic_img, cv2.COLOR_BGR2RGB)
+
         # szkic (kolor) normalizacja do [-1, 1]:
         szkic_img = (szkic_img.astype(np.float32) / 127.5) - 1.0
         # mapa (czarno-biała) normalizacja do [-1, 1]:
