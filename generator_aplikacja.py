@@ -5,6 +5,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 import cv2
+import time
 import os
 
 print(f"PyTorch wersja: {torch.__version__}")
@@ -157,6 +158,7 @@ class DrawingApp:
 
     def generate_map(self):
         print("Rozpoczynam generowanie...")
+        start_ai = time.perf_counter() #dodanie pomiaru czasu generowania mapy
         try:
             szkic_rgb = np.array(self.pil_image)
             
@@ -185,6 +187,9 @@ class DrawingApp:
             # 4. Zapiszanie i wyświetlanie wyniku
             nazwa_pliku_wynik = "terrain.png"
             cv2.imwrite(nazwa_pliku_wynik, mapa_finalna_img)
+            end_ai = time.perf_counter() # stop pomiaru czasu generowania mapy
+            czas_total = end_ai - start_ai
+            print(f"Czas generowania mapy: {czas_total:.8f} s") # <--- KROK 3: WYŚWIETLENIE WYNIKU
             
             print(f"Sukces! Mapa zapisana jako {nazwa_pliku_wynik}")
             messagebox.showinfo("Sukces!", f"Mapa została wygenerowana i zapisana jako:\n{nazwa_pliku_wynik}")

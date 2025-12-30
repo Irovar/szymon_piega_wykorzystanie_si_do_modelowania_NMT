@@ -7,8 +7,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <chrono> // pomiary czasu
 
 using namespace std;
+using namespace chrono;
 
 // --- ZMIENNE GLOBALNE ---
 int width, height, channels;
@@ -122,13 +124,13 @@ float getHeightAndSetColor( int x, int z ) {
     else {
         float greenGradientPos = normalized / peakThreshold;
 
-        greenGradientPos = greenGradientPos * greenGradientPos;
+        greenGradientPos = greenGradientPos * greenGradientPos; //normalized^2
 
         float darkR = 0.0f, darkG = 0.20f, darkB = 0.05f;
 
         float lightR = 0.3f, lightG = 0.85f, lightB = 0.15f;
 
-        float finalR = darkR + greenGradientPos * (lightR - darkR);
+        float finalR = darkR + greenGradientPos * (lightR - darkR); //C_base + t * (C_target - C_base)
         float finalG = darkG + greenGradientPos * (lightG - darkG);
         float finalB = darkB + greenGradientPos * (lightB - darkB);
 
@@ -193,6 +195,8 @@ void repairEdges() {
 
 int main( void )
 {
+    //START POMIARU INICJALIZACJI
+    auto startInit = high_resolution_clock::now();
     GLFWwindow* window;
 
     if(!glfwInit()) return -1;
@@ -235,6 +239,13 @@ int main( void )
 
     glEnable( GL_DEPTH_TEST );
 
+    // KONIEC POMIARU INICJALIZACJI
+    auto endInit = high_resolution_clock::now();
+    duration<double> diffInit = endInit - startInit;
+    cout << "Czas inicjalizacji silnika: " << diffInit.count() << " s" << endl;
+    int frameCounter = 0; // Pomocniczy licznik klatek
+
+
     while(!glfwWindowShouldClose( window ))
     {
         // t³o
@@ -259,7 +270,20 @@ int main( void )
         glRotatef( rotX, 1.0f, 0.0f, 0.0f );
         glRotatef( rotY, 0.0f, 1.0f, 0.0f );
 
+        // --- POMIAR CZASU RENDEROWANIA KLATKI (RAW) ---
+        auto startFrame = high_resolution_clock::now();
+
         renderTerrain();
+
+        auto endFrame = high_resolution_clock::now();
+        duration<double> diffFrame = endFrame - startFrame;
+
+        // Wypisuj œredni czas co 500 klatek, ¿eby nie spowalniaæ konsoli
+        frameCounter++;
+        if(frameCounter >= 500) {
+            cout << "Czas renderowania klatki (raw): " << diffFrame.count() << " s" << endl;
+            frameCounter = 0;
+        }
 
         glfwSwapBuffers( window );
         glfwPollEvents();
