@@ -13,6 +13,8 @@ Repozytorium zawiera pliki wykonywalne oraz pełny kod źródłowy:
 * `generator_mozg.pth` - Wyuczony model sieci neuronowej.
 * `generator_aplikacja.py` - Skrypt generujący NMT na podstawie wbudowanego szkicownika.
 * **Folder z projektem VS** - Pełny projekt Visual Studio (kod źródłowy C++).
+* **Folder z danymi wejściowymi** - Folder z danymi wejściowymi do uczenia modelu, Pełny kod do ubróbki danych wejściowych oraz kod uczący model SI.
+* **4 Foldery do testu** - 4 foldery do testowania aplikacji OpenGL.exe, zawierające 4 różne NMT (2 rzeczywiste, 2 wygenerowane przez "generator_aplikacja.py".
 
 ## Ważna uwaga: Generowanie terenu
 Repozytorium **nie zawiera** domyślnego pliku tekstury terenu (`terrain.png`).
@@ -82,8 +84,10 @@ Projekt jest skonfigurowany relatywnie, co oznacza, że po pobraniu repozytorium
 
 krok0_tiff_na_png nie jest konieczny do rozpoczęcia trenowania modelu. Dane mapy_png już są po konwersji.
 krok1_potnij_mapy nie jest konieczny do rozpoczęcia trenowania modelu. Służy jedynie do wyboru danych wejściowych.
-
 krok2 musi zostać uruchomiony przed krok3 aby wygenerować więcej danych wejściowych
+
+## W repozytorium dostępne są również 4 foldery z danymi terrain.png, dostępne aby użytkownik bezproblemowo mógł przetestować aplikację OpenGL.exe
+
 
 
 
