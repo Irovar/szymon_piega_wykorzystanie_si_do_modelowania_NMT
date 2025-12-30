@@ -86,7 +86,9 @@ Projekt jest skonfigurowany relatywnie, co oznacza, że po pobraniu repozytorium
 * `krok3_trenuj_mozg` - plik w języku Python służący do uczenia modelu SI wykorzystując zaugmentowane dane
 
 krok0_tiff_na_png nie jest konieczny do rozpoczęcia trenowania modelu. Dane mapy_png już są po konwersji.
+
 krok1_potnij_mapy nie jest konieczny do rozpoczęcia trenowania modelu. Służy jedynie do wyboru danych wejściowych.
+
 krok2 musi zostać uruchomiony przed krok3 aby wygenerować więcej danych wejściowych
 
 ## W repozytorium dostępne są również 4 foldery z danymi terrain.png, dostępne aby użytkownik bezproblemowo mógł przetestować aplikację OpenGL.exe
