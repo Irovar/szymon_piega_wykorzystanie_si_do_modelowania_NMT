@@ -6,7 +6,7 @@
 Projekt łączy algorytmy sztucznej inteligencji (cGAN, pix2pix) zaimplementowane w języku Python z interaktywną wizualizacją terenu 3D napisaną w języku C++ (OpenGL).
 
 # **UWAGA**
-Jeżeli przy pobieraniu całego repozytorium generator_mozg.pth nie pobiera się w całości, należy dodatkowo, indywidualnie pobrać ten plik
+Ze względu na rozmiar, przy pobieraniu całego repozytorium generator_mozg.pth nie pobiera się w całości, należy dodatkowo, indywidualnie pobrać ten plik klikając *View raw*
 
 ## Struktura projektu
 
